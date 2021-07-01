@@ -1,0 +1,50 @@
+#!/bin/bash
+
+read -r -d '' HEADER << EOM
+<html>
+<head>
+<style>
+h1 {
+  background-color: #faae3c;
+  padding: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #dbdbdb;
+}
+h2 {
+  background-color: #ffe07a;
+  padding: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #dbdbdb;
+}
+h3 {
+  background-color: #fffade;
+  padding: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #dbdbdb;
+}
+code {
+	background-color: #dbdbdb;
+}
+body {
+  font-family: sans-serif;
+  padding: 5%;
+}
+</style>
+</head>
+<body>
+EOM
+
+read -r -d '' FOOTER << EOM
+</body>
+</html>
+EOM
+
+htmlfile="${1/.md/.html}"
+python3 -m markdown $1 > "tmp.$htmlfile"
+echo $HEADER > HEADER.html
+echo $FOOTER > FOOTER.html
+cat HEADER.html "tmp.$htmlfile" FOOTER.html > $htmlfile
+rm HEADER.html FOOTER.html "tmp.$htmlfile"

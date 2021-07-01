@@ -1,0 +1,406 @@
+@startuml
+
+object CellMetadata #fff9c5 {
+  cache_location
+  cells
+  dataset_design
+  default_cache_location
+  file_manifest_file
+  file_metadata
+  input_files_path
+  table_header_constant_portion
+  table_header_template
+  get_cell_info_table()
+  get_fov_index()
+  get_metadata()
+  get_sample_id_index()
+  initialize()
+  load_cache_file()
+}
+
+object pd.read_csv #d5ffd1 {
+
+
+}
+
+object pd.DataFrame #d5ffd1 {
+
+
+}
+
+object ComputationalDesign #fff9c5 {
+
+  get_database_uri()
+}
+
+object WorkflowModules #fff9c5 {
+  analyzer
+  computational_design
+  dataset_design
+  generator
+  integrator
+}
+
+object WaitingDatabaseContextManager #fff9c5 {
+  connection
+  cursor
+  seconds
+  uri
+  __enter__()
+  __exit__()
+  commit()
+  execute()
+  execute_commit()
+}
+
+object sqlite3.connect #d5ffd1 {
+
+
+}
+
+object Enum {
+
+
+}
+
+object JobActivity #fff9c5 {
+  COMPLETE
+  FAILED
+  NOT_STARTED
+  RUNNING
+
+}
+
+object JobGenerator #fff9c5 {
+  cached_file_metadata_header
+  dataset_settings
+  file_metadata
+  jobs_paths
+  pipeline_design
+  runtime_settings
+  clean_directory_area()
+  gather_input_info()
+  generate()
+  generate_all_jobs()
+  generate_scheduler_scripts()
+  initialize_job_activity_table()
+  make_fresh_directory()
+  populate_file_metadata_table()
+  register_job_existence()
+}
+
+object RuntimeEnvironmentSettings #fff9c5 {
+  runtime_platform
+  sif_file
+}
+
+object PipelineDesign #fff9c5 {
+
+  get_database_uri()
+}
+
+object JobsPaths #fff9c5 {
+  job_working_directory
+  jobs_path
+  logs_path
+  output_path
+  schedulers_path
+}
+
+object DatasetSettings #fff9c5 {
+  file_manifest_file
+  input_path
+  outcomes_file
+}
+
+object logging.Formatter #d5ffd1 {
+
+}
+
+object CustomFormatter #fff9c5 {
+  format()
+}
+
+object SingleJobAnalyzer #fff9c5 {
+  dataset_settings
+  input_file_identifier
+  job_index
+  jobs_paths
+  pipeline_design
+  _calculate()
+  calculate()
+  get_input_filename()
+  get_input_filename_by_identifier()
+  get_job_index()
+  get_pipeline_database_uri()
+  get_sample_identifier()
+  register_activity()
+  retrieve_input_filename()
+  retrieve_sample_identifier()
+}
+
+object HALORegionalAreasProvider #ffd8fe {
+  areas
+  dataset_design
+  units
+  get_area()
+  get_fov_compartments()
+  get_total_compartmental_area()
+  get_units()
+  load_regional_areas()
+}
+
+object HALOCellMetadataDesign #ffd8fe {
+  areas_provider
+  compartments
+  elementary_phenotypes
+  get_FOV_column()
+  get_box_limit_column_names()
+  get_cell_manifest_descriptor()
+  get_cellular_sites()
+  get_combined_intensity()
+  get_compartmental_signature()
+  get_compartments()
+  get_elementary_phenotype_names()
+  get_feature_name()
+  get_indicator_prefix()
+  get_intensity_column_names()
+  get_pandas_signature()
+  get_regional_areas_file_identifier()
+  get_regional_areas_table_descriptor()
+  interpret_value_specification()
+  munge_name()
+  non_infix_bitwise_AND()
+  non_tumor_stromal_scope_signature()
+  normalize_fov_descriptor()
+  normalize_fov_descriptors()
+  tumor_scope_signature()
+}
+
+object SampleFOVLookup #ffd8fe {
+  fov_descriptors
+  sample_ids
+  add_fovs()
+  add_sample_id()
+  get_fov_index()
+  get_sample_index()
+}
+
+object HALOCellMetadata #ffd8fe {
+  lookup
+  check_data_type()
+  get_cell_info_table()
+  get_fov_index()
+  get_sample_id_index()
+  get_selected_columns()
+  populate_integer_indices()
+}
+
+object DiffusionAnalyzer #d1f3ff {
+  calculator
+  computational_design
+  dataset_design
+  regional_compartment
+  _calculate()
+  dispatch_diffusion_calculation()
+  save_job_metadata()
+  save_transition_probability_values()
+}
+
+object DiffusionCalculator #d1f3ff {
+  dataset_design
+  df
+  distribution_sample_size_max
+  fov
+  number_eigenvectors_max
+  number_marked_nt
+  number_marked_t
+  regional_compartment
+  tree
+  tumor_edge_indices
+  values
+  calculate_diffusion()
+  calculate_diffusion_kernel()
+  calculate_transition_matrix_evolution()
+  data_along()
+  generate_primary_point_cloud()
+  get_D_size()
+  get_box_centers()
+  get_fov_handle_string()
+  get_pertinent_point_indices()
+  get_temporal_offsets()
+  get_values()
+  restrict_scope()
+}
+
+object DiffusionDesign #d1f3ff {
+  complex_phenotypes
+  dataset_design
+  get_all_phenotype_signatures()
+  get_database_uri()
+  get_job_metadata_header()
+  get_probabilities_table_header()
+  get_transition_probabilities_summarized_header()
+}
+
+object DistanceTypes #d1f3ff {
+  CURVATURE
+  EUCLIDEAN
+  OPTIMAL_TRANSPORT
+
+}
+
+object DiffusionAnalysisIntegrator #d1f3ff {
+  computational_design
+  dataset_settings
+  histogram_resolution
+  max_probability_value
+  min_probability_value
+  output_path
+  calculate()
+  camel_case()
+  create_bins()
+  do_outcome_tests()
+  generate_figures()
+  get_dataframe_from_db()
+  guess_round()
+  initialize_output_tables()
+  record_summary_of_values()
+}
+
+object DiffusionJobGenerator #d1f3ff {
+  cli_call_template
+  computational_design
+  control_node_hostnames
+  dataset_design
+  file_metadata_header
+  local_run_calls
+  lsf_template
+  number_arrays_of_jobs
+  number_fovs
+  submit_calls
+  gather_input_info()
+  generate_all_jobs()
+  generate_array_of_jobs()
+  generate_scheduler_scripts()
+  get_memory_requirements()
+  get_regional_compartments()
+  initialize_intermediate_database()
+}
+
+object PhenotypeProximityAnalyzer #abceff {
+  calculator
+  computational_design
+  dataset_design
+  _calculate()
+  cell_counts_and_intensity_averages()
+}
+
+object PhenotypeProximityDesign #abceff {
+  complex_phenotypes
+  dataset_design
+  get_all_phenotype_signatures()
+  get_cell_pair_counts_table_header()
+  get_database_uri()
+  get_stats_tests_file()
+}
+
+object PhenotypeProximityCalculator #abceff {
+  areas
+  computational_design
+  dataset_design
+  fov_lookup
+  input_filename
+  outcomes_file
+  output_path
+  radius_number_increments
+  radius_pixels_lower_limit
+  radius_pixels_upper_limit
+  sample_identifier
+  calculate_proximity()
+  create_cell_pairs_tables()
+  create_cell_tables()
+  do_aggregation_counting()
+  do_aggregation_one_phenotype_pair()
+  flatten_lists()
+  get_radii_of_interest()
+  precalculate_masks()
+  pull_in_outcome_data()
+  write_cell_pair_counts()
+}
+
+object PhenotypeProximityAnalysisIntegrator #abceff {
+  cell_proximity_tests
+  computational_design
+  outcomes_file
+  output_path
+  calculate()
+  do_outcome_tests()
+  export_results()
+  retrieve_radius_limited_counts()
+}
+
+object PhenotypeProximityJobGenerator #abceff {
+  cli_call_template
+  computational_design
+  control_node_hostnames
+  dataset_design
+  lsf_job_filenames
+  lsf_template
+  sh_job_filenames
+  gather_input_info()
+  generate_all_jobs()
+  generate_scheduler_scripts()
+  get_memory_requirements()
+  initialize_intermediate_database()
+}
+
+pd.read_csv <-[#black]- CellMetadata 
+pd.DataFrame <-[#black]- CellMetadata 
+sqlite3.connect <-[#black]- WaitingDatabaseContextManager 
+JobActivity -[#black]-|> Enum 
+pd.read_csv <-[#black]- JobGenerator 
+RuntimeEnvironmentSettings <-[#black]- JobGenerator 
+PipelineDesign <-[#black]- JobGenerator 
+JobsPaths <-[#black]- JobGenerator 
+DatasetSettings <-[#black]- JobGenerator 
+CustomFormatter -[#black]-|> logging.Formatter 
+JobsPaths <-[#black]- SingleJobAnalyzer 
+PipelineDesign <-[#black]- SingleJobAnalyzer 
+DatasetSettings <-[#black]- SingleJobAnalyzer 
+pd.read_csv <-[#black]- HALOCellMetadataDesign 
+HALOCellMetadata -[#black]-|> CellMetadata 
+SampleFOVLookup <-[#black]- HALOCellMetadata 
+DiffusionAnalyzer -[#black]-|> SingleJobAnalyzer 
+DiffusionCalculator <-[#black]- DiffusionAnalyzer 
+DiffusionDesign <-[#black]- DiffusionAnalyzer 
+DiffusionDesign -[#black]-|> ComputationalDesign 
+pd.read_csv <-[#black]- DiffusionDesign 
+DistanceTypes -[#black]-|> Enum 
+pd.read_csv <-[#black]- DiffusionCalculator 
+DatasetSettings <-[#black]- DiffusionAnalysisIntegrator 
+JobsPaths <-[#black]- DiffusionAnalysisIntegrator 
+DiffusionJobGenerator -[#black]-|> JobGenerator 
+HALOCellMetadataDesign <-[#black]- DiffusionJobGenerator 
+DiffusionDesign <-[#black]- DiffusionJobGenerator 
+PhenotypeProximityAnalyzer -[#black]-|> SingleJobAnalyzer 
+PhenotypeProximityDesign <-[#black]- PhenotypeProximityAnalyzer 
+PhenotypeProximityCalculator <-[#black]- PhenotypeProximityAnalyzer 
+PhenotypeProximityDesign -[#black]-|> ComputationalDesign 
+pd.read_csv <-[#black]- PhenotypeProximityDesign 
+JobsPaths <-[#black]- PhenotypeProximityCalculator 
+DatasetSettings <-[#black]- PhenotypeProximityCalculator 
+JobsPaths <-[#black]- PhenotypeProximityAnalysisIntegrator 
+DatasetSettings <-[#black]- PhenotypeProximityAnalysisIntegrator 
+PhenotypeProximityJobGenerator -[#black]-|> JobGenerator 
+PhenotypeProximityDesign <-[#black]- PhenotypeProximityJobGenerator 
+HALOCellMetadataDesign <-[#black]- PhenotypeProximityJobGenerator 
+
+object environment #fff9c5
+object "workflows.diffusion" as workflowsdiffusion #d1f3ff
+object "workflows.phenotype_proximity" as workflowsp2p #abceff
+object "dataset_designs" as datasetdesigns #ffd8fe
+object "external" as externallibrary #d5ffd1
+
+
+@enduml
