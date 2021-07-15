@@ -39,8 +39,8 @@ Create a file called `example_job.sh`, with contents:
 #!/bin/bash
 #BSUB -J example_job
 #BSUB -n "1"
-#BSUB -W 4:00
-#BSUB -R "rusage[mem=6]"
+#BSUB -W 0:30
+#BSUB -R "rusage[mem=2]"
 #BSUB -R "span[hosts=1]"
 #BSUB -R "select[hname!=plvimphctrl1]"
 cd example_job_directory
