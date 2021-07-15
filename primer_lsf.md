@@ -19,7 +19,7 @@ Create a subdirectory:
 mkdir example_job_directory
 ```
 
-Then make a file called `run_example.sh` with the contents:
+Then make a file called `example_job_directory/run_example.sh` with the contents:
 
 ```bash
 #!/bin/bash
@@ -29,8 +29,10 @@ do
     COUNT=$(( COUNT + 1 ))
 done
 
-echo "COUNT value in the end was: $COUNT"
+echo "COUNT value in the end was: $COUNT" > results.out
 ```
+
+Make it executable! Use `chmod +x example_job_directory/run_example.sh`.
 
 Submit to the scheduler
 -----------------------
