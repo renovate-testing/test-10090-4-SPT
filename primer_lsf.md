@@ -34,7 +34,7 @@ echo "COUNT value in the end was: $COUNT"
 
 Submit to the scheduler
 -----------------------
-Create a file called `example_job.sh`, with contents:
+Create a file called `example_job.sh` (*not* in `example_job_directory`), with contents:
 
 ```bash
 #!/bin/bash
