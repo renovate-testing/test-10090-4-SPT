@@ -52,7 +52,7 @@ This file, `example_job.sh`, has some bash "comments" that will be interpreted b
 To actually schedule it, do:
 
 ```
-bsub < example_job.sh
+bsub < example_job_directory/example_job.sh
 ```
 
 Monitor progress
