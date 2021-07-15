@@ -22,6 +22,7 @@ mkdir example_job_directory
 Then make a file called `run_example.sh` with the contents:
 
 ```bash
+#!/bin/bash
 N=$1
 for i in $(seq 1 1 $N);
 do
