@@ -418,13 +418,19 @@ class PhenotypeProximityCalculator:
                 for fov_index, distance_matrix in cell_pairs.items():
                     rows = phenotype_indices[fov_index][source]
                     cols = phenotype_indices[fov_index][target]
+                    logger.debug('Calculating P1 and P2 masks for FOV %s.', fov_index)
                     if compartment != 'all':
                         rows = rows & compartment_indices[fov_index][compartment]
                         cols = cols & compartment_indices[fov_index][compartment]
+                    logger.debug('Done.')
+                    logger.debug('Restricting distance matrix to P1 P2.')
                     p2p_distance_matrix = distance_matrix[rows][:, cols]
+                    logger.debug('Done.')
+                    logger.debug('Summing under radius bound.')
                     additional = np.sum(
                         (p2p_distance_matrix < radius) & (p2p_distance_matrix > 0)
                     )
+                    logger.debug('Done.')
                     if np.isnan(additional):
                         continue
                     count += additional
