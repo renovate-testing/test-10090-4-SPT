@@ -1,0 +1,4 @@
+{
+  "rangeStrategy": "bump",
+  "enabledManagers": ["pip_setup"]
+}
