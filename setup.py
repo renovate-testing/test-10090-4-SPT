@@ -22,7 +22,7 @@ requirements = [
     'python-dateutil==2.8.1',
     'pytz==2021.1',
     'scipy==1.7.0',
-    'seaborn==0.11.1',
+    'seaborn==0.11.2',
     'six==1.16.0',
     'plotly==5.1.0',
     'networkx==2.5.1',
