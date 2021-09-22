@@ -26,7 +26,7 @@ requirements = [
     'six==1.16.0',
     'plotly==5.1.0',
     'networkx==2.5.1',
-    'kaleido==0.2.1',
+    'kaleido==0.2.1.post1',
 ]
 version = get_file_contents(join('spatialprofilingtoolbox', 'version.txt'))
 
