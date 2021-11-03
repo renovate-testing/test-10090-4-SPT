@@ -11,7 +11,7 @@ def get_file_contents(filename):
 long_description = """See the [user documentation](https://github.com/nadeemlab/SPT).
 """
 requirements = [
-    'cycler==0.10.0',
+    'cycler==0.11.0',
     'Cython==0.29.23',
     'kiwisolver==1.3.1',
     'matplotlib==3.4.2',
