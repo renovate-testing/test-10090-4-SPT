@@ -15,7 +15,7 @@ requirements = [
     'Cython==0.29.23',
     'kiwisolver==1.3.1',
     'matplotlib==3.4.2',
-    'numpy==1.21.0',
+    'numpy==1.22.1',
     'pandas==1.1.5',
     'POT==0.7.0',
     'pyparsing==2.4.7',
