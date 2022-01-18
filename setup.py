@@ -14,7 +14,7 @@ requirements = [
     'cycler==0.10.0',
     'Cython==0.29.23',
     'kiwisolver==1.3.1',
-    'matplotlib==3.4.2',
+    'matplotlib==3.5.1',
     'numpy==1.21.0',
     'pandas==1.1.5',
     'POT==0.7.0',
