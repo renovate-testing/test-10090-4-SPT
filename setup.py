@@ -18,7 +18,7 @@ requirements = [
     'numpy==1.21.0',
     'pandas==1.1.5',
     'POT==0.7.0',
-    'pyparsing==2.4.7',
+    'pyparsing==3.0.6',
     'python-dateutil==2.8.1',
     'pytz==2021.1',
     'scipy==1.7.0',
